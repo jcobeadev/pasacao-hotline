@@ -59,6 +59,9 @@
         }
       }
     },
+    "All Coins" : {
+
+    },
     "Appearance" : {
       "comment" : "Settings select label for the interface style of the controls (light, dark, or default)",
       "localizations" : {
@@ -116,6 +119,9 @@
           }
         }
       }
+    },
+    "Coin" : {
+
     },
     "Dark" : {
       "comment" : "Menu item indicating that the appearance should be in dark mode",
@@ -349,6 +355,9 @@
         }
       }
     },
+    "Pasacao Hotline" : {
+
+    },
     "Powered by [Skip](https://skip.tools)" : {
       "comment" : "Link markdown text for the Powered by… label",
       "localizations" : {
@@ -377,6 +386,9 @@
           }
         }
       }
+    },
+    "Price" : {
+
     },
     "Save" : {
       "comment" : "Button title indicating that the current contents should be saved",

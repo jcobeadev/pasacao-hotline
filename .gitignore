@@ -1,5 +1,8 @@
 ## User settings
 
+# Ignore secrets file
+Secrets.swift
+
 # vi
 .*.swp
 .*.swo

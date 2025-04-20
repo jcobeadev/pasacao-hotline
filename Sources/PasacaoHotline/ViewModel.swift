@@ -4,6 +4,9 @@ import OSLog
 
 /// The Observable ViewModel used by the application.
 @Observable public class ViewModel {
+    
+//    let supabase = SupabaseClient(supabaseURL: Secrets.projectURL, supabaseKey: Secrets.apiKey)
+    
     var items: [Item] = loadItems() {
         didSet { saveItems() }
     }
@@ -26,6 +29,54 @@ import OSLog
             i.id == item.id ? item : i
         }
     }
+
+    
+    fileprivate static func fetchHotlines(completion: @escaping ([Hotline]) -> Void) {
+        let projectID = "lvkdolhbctktrygamphh"
+        let url = URL(string: "https://lvkdolhbctktrygamphh.supabase.co/rest/v1/Hotline")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue(Secrets.apiKey, forHTTPHeaderField: "Authorization")
+        request.setValue(Secrets.apiKey, forHTTPHeaderField: "apikey")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("❌ Error fetching:", error)
+                completion([])
+                return
+            }
+            
+            guard let data = data else {
+                print("❌ No data")
+                completion([])
+                return
+            }
+            
+            print("📦 Raw JSON:", String(data: data, encoding: .utf8) ?? "nil")
+            
+            do {
+                let decoder = JSONDecoder()
+                let hotlines = try decoder.decode([Hotline].self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(hotlines)
+                }
+            } catch {
+                print("❌ Failed to decode:", error)
+                completion([])
+            }
+        }.resume()
+    }
+}
+
+struct Hotline: Codable, Identifiable, Hashable {
+    let id: Int?
+//    var createdAt: Date?
+    let name: String
+    let mobile: [String]?
+    let phone: [String]?
+    let radio: String?
 }
 
 /// An individual item held by the ViewModel
@@ -62,6 +113,13 @@ extension ViewModel {
     private static let savePath = URL.applicationSupportDirectory.appendingPathComponent("appdata.json")
 
     fileprivate static func loadItems() -> [Item] {
+        
+        fetchHotlines { hotlines in
+            print(hotlines)
+        }
+        
+        print("$$ here")
+        
         do {
             let start = Date.now
             let data = try Data(contentsOf: savePath)
@@ -76,6 +134,7 @@ extension ViewModel {
             let defaultItems = (1...365).map { Date(timeIntervalSinceNow: Double($0 * 60 * 60 * 24 * -1)) }
             return defaultItems.map({ Item(date: $0) })
         }
+        
     }
 
     fileprivate func saveItems() {
