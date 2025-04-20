@@ -13,7 +13,7 @@ public struct PasacaoHotlineRootView : View {
     }
 
     public var body: some View {
-        ContentView()
+        HomeView()
             .task {
                 logger.info("Skip app logs are viewable in the Xcode console for iOS; Android logs can be viewed in Studio or using adb logcat")
             }
