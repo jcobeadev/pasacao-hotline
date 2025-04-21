@@ -30,6 +30,15 @@
         }
       }
     },
+    "☎️ Phone" : {
+
+    },
+    "📡 Radio" : {
+
+    },
+    "📱 Mobile" : {
+
+    },
     "Add" : {
       "comment" : "Button in items list that will cause a new item to be added",
       "localizations" : {
@@ -58,9 +67,6 @@
           }
         }
       }
-    },
-    "All Coins" : {
-
     },
     "Appearance" : {
       "comment" : "Settings select label for the interface style of the controls (light, dark, or default)",
@@ -119,9 +125,6 @@
           }
         }
       }
-    },
-    "Coin" : {
-
     },
     "Dark" : {
       "comment" : "Menu item indicating that the appearance should be in dark mode",
@@ -386,9 +389,6 @@
           }
         }
       }
-    },
-    "Price" : {
-
     },
     "Save" : {
       "comment" : "Button title indicating that the current contents should be saved",

@@ -207,6 +207,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* PasacaoHotline.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				DEVELOPMENT_TEAM = SDFF26V6W2;
 				ENABLE_PREVIEWS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -217,6 +219,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 496EB72F2A6AE4DE00C1253B /* PasacaoHotline.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				DEVELOPMENT_TEAM = SDFF26V6W2;
 				ENABLE_PREVIEWS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

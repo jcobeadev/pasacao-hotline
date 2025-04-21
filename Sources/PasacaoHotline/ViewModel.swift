@@ -70,15 +70,6 @@ import OSLog
     }
 }
 
-struct Hotline: Codable, Identifiable, Hashable {
-    let id: Int?
-//    var createdAt: Date?
-    let name: String
-    let mobile: [String]?
-    let phone: [String]?
-    let radio: String?
-}
-
 /// An individual item held by the ViewModel
 struct Item : Identifiable, Hashable, Codable {
     let id: UUID

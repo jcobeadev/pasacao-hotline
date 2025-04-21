@@ -41,7 +41,7 @@ class HomeViewModel: ObservableObject {
                 let hotlines = try decoder.decode([Hotline].self, from: data)
                 
                 DispatchQueue.main.async {
-                    self.hotlines = hotlines
+                    self.hotlines = hotlines.sorted(by: { $0.id ?? 0 < $1.id ?? 1 })
                 }
             } catch {
                 print("❌ Failed to decode:", error)
